@@ -121,8 +121,10 @@ VERTEX <- transform(VERTEX, group = as.factor(group))
 ```{r}
 #Graph
 g <- graph.data.frame(EDGE, directed=TRUE, vertices=VERTEX)
-plot.igraph(g, vertex.size=VERTEX$COUNT*3,
+plot.igraph(g, vertex.size=VERTEX$COUNT,
+            asp = 0,
             edge.arrow.width=0,
+            vertex.size = 5,
             vertex.color=VERTEX$group,
             vertex.frame.color = NA,
             edge.width=EDGE$count, 
@@ -178,7 +180,7 @@ Graph of matrix:
 ```{r}
 g2<-graph.adjacency(PPMatrix, mode="undirected")
 plot.igraph(g2, vertex.frame.color = NA,
-            asp = -1,
+            asp = 0,
             vertex.label.family = "Helvetica",
             vertex.size = 5,
             vertex.label.dist = 1.5,
